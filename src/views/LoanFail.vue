@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div class="databox">
-      <img src="../assets/loancalc_logo.png">
+      <a href="/"><img src="../assets/loancalc_logo.png"></a>
       <h1>Rejected</h1>
       <p>Unfortunately, your application does not fit our current requirements. We're sorry.</p>
     </div>
@@ -18,7 +18,9 @@ export default {
 <style scoped>
 
 h1{
-  color: #DB324D
+  color: #DB324D;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .root{
@@ -29,8 +31,8 @@ h1{
   letter-spacing: -0.5px;
 }
 .databox{
-  border-radius:10px;
-  border: 3px solid #2A0A55;
+  border-radius:3px;
+  border: 2px solid #2A0A55;
   width: 400px;
   display: flex;
   flex-direction: column;

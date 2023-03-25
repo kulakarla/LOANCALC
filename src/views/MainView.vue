@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div class="databox">
-      <img src="../assets/loancalc_logo.png">
+      <a href="/"><img src="../assets/loancalc_logo.png"></a>
       <div class="inputDiv">
         <input type="text" name="personalCode" v-model="personalCode" placeholder="Personal code"/>
         <p v-if="v$.personalCode.$error">{{ v$.personalCode.$errors[0].$message }}</p>

@@ -1,6 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import MainView from "@/views/MainView";
-import TestView from "@/views/TestView";
 import LoanFail from "@/views/LoanFail";
 import InitialPeriodSuccess from "@/views/InitialPeriodSuccess";
 import AlternativePeriodSuccess from "@/views/AlternativePeriodSuccess";
@@ -10,11 +9,6 @@ const routes = [
         path: '/',
         name: 'main',
         component: MainView
-    },
-    {
-        path: '/test',
-        name: 'test',
-        component: TestView
     },
     {
         path: '/failure',

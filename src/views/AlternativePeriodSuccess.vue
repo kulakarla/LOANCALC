@@ -1,12 +1,18 @@
 <template>
   <div class="root">
     <div class="databox">
-      <img src="../assets/loancalc_logo.png">
-      <h1>Congratulations!</h1>
+      <a href="/"><img src="../assets/loancalc_logo.png"></a>
+      <h1 class="congrats">Congratulations!</h1>
       <p>You're initial needs could not be met due to our requirements. However, we could grant you a minimum loan
-      of 2000€ for a period of {{ minimumLoanPeriod }}.</p>
-      <p v-if="desiredLoanperiod >= 12 && desiredLoanperiod <= 60">You're initial loan of {{ loanAmount }} could be granted for a period of {{ desiredLoanperiod }} months.</p>
-    </div>
+      of 2000€ with a payment period of</p>
+      <h1 class="period">{{ minimumLoanPeriod }}</h1>
+      <p>months</p>
+      <div v-if="desiredLoanperiod >= 12 && desiredLoanperiod <= 60" class="ifDesiredLoan">
+        <p>Your initial loan of <b>{{ loanAmount }}€</b> could be granted with a payment period of</p>
+        <h1 class="period">{{ desiredLoanperiod }}</h1>
+        <p>months</p>
+      </div>
+      </div>
   </div>
 </template>
 
@@ -29,9 +35,20 @@ export default {
 
 <style scoped>
 
-h1{
+.congrats{
   color: #8CC7A1;
 }
+h1{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.period{
+  margin-bottom: -15px;
+}
+
+
 
 .root{
   display: flex;
@@ -42,8 +59,8 @@ h1{
 }
 
 .databox{
-  border-radius:10px;
-  border: 3px solid #2A0A55;
+  border-radius:3px;
+  border: 2px solid #2A0A55;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -55,7 +72,7 @@ h1{
 
 p{
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 img{

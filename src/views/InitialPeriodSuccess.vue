@@ -1,9 +1,13 @@
 <template>
   <div class="root">
     <div class="databox">
-      <img src="../assets/loancalc_logo.png">
-      <h1>Congratulations!</h1>
-      <p>You are deemed fit for a loan up to {{ loanAmount }} for a payment period of {{ loanPeriod }} months.</p>
+      <a href="/"><img src="../assets/loancalc_logo.png"></a>
+      <h1 class="congrats">Congratulations!</h1>
+      <p>You are deemed fit for a loan up to</p>
+      <h1>{{ loanAmount }}€</h1>
+      <p>with a payment period of</p>
+      <h1 class="period"> {{ loanPeriod }} </h1>
+      <p>months</p>
     </div>
   </div>
 </template>
@@ -26,9 +30,20 @@ export default {
 
 <style scoped>
 
-h1{
+.congrats{
   color: #8CC7A1;
 }
+
+h1{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.period{
+  margin-bottom: -15px;
+}
+
+
 
 .root{
   display: flex;
@@ -38,8 +53,8 @@ h1{
   letter-spacing: -0.5px;
 }
 .databox{
-  border-radius:10px;
-  border: 3px solid #2A0A55;
+  border-radius:3px;
+  border: 2px solid #2A0A55;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -51,7 +66,7 @@ h1{
 
 p{
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 img{
