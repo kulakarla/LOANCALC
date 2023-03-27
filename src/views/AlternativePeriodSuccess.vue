@@ -3,7 +3,7 @@
     <div class="databox">
       <a href="/"><img src="../assets/loancalc_logo.png"></a>
       <h1 class="congrats">Congratulations!</h1>
-      <p>You're initial needs could not be met due to our requirements. However, we could grant you a minimum loan
+      <p>You're initial needs could not be met due to our requirements. However, we could grant you the minimum loan
       of 2000€ with a payment period of</p>
       <h1 class="period">{{ minimumLoanPeriod }}</h1>
       <p>months</p>
