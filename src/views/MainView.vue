@@ -11,7 +11,7 @@
         <p v-if="v$.loanAmount.$error">{{ v$.loanAmount.$errors[0].$message }}</p>
       </div>
       <div class="inputDiv">
-        <input type="text" name="loanDuration" v-model="loanDuration" placeholder="Loan duration"/>
+        <input type="text" name="loanDuration" v-model="loanDuration" placeholder="Loan duration (months)"/>
         <p v-if="v$.loanDuration.$error"> {{ v$.loanDuration.$errors[0].$message }}</p>
       </div>
       <button @click="validLoan" :disabled="v$.$error ? true : false">SUBMIT</button>
@@ -40,7 +40,20 @@ export default {
 
   validations(){
 
-    const validPersonalCode = (value) => /^[1-6][0-9]{8}(65|76|87|98)$/.test(value)
+    function isFeb(value){
+      return value.substring(3, 5) === "02"
+    }
+
+    function validFebDate(value){
+      const year = Number(value.substring(1, 3))
+      const day = Number(value.substring(5, 7))
+
+      return year % 4 === 0 && day >= 1 && day <= 29 || year % 4 !== 0 && day >= 1 && day <= 28
+
+    }
+
+    const validPersonalCode = (value) => /^(([5-6](0[0-9]|1[0-9]|2[0-3]))|([1-4][0-9]{2}))(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[0-1])[0-9]{2}(65|76|87|98)$/.test(value) &&
+        (isFeb(value) ? validFebDate(value) : true)
 
     const validAmount = (value) => Number(value) >= 2000 && Number(value <= 10000)
 
