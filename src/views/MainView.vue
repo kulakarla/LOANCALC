@@ -52,12 +52,24 @@ export default {
 
     }
 
+    function checkDayMonth(value){
+      const day = Number(value.substring(5, 7))
+      const month = Number(value.substring(3, 5))
+
+      const thirtyonedays = [1, 3, 5, 7, 8, 10, 12]
+
+
+      return thirtyonedays.includes(month) ? day <= 31 : day <= 30
+
+
+    }
+
     const validPersonalCode = (value) => /^(([5-6](0[0-9]|1[0-9]|2[0-3]))|([1-4][0-9]{2}))(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[0-1])[0-9]{2}(65|76|87|98)$/.test(value) &&
-        (isFeb(value) ? validFebDate(value) : true)
+        (isFeb(value) ? validFebDate(value) : true) && checkDayMonth(value)
 
     const validAmount = (value) => Number(value) >= 2000 && Number(value <= 10000)
 
-    const validDuration = (value) => /^[0-9]{2}$/.test(value) && Number(value) >= 12 && Number(value <= 60)
+    const validDuration = (value) => /^[0-9]{2}$/.test(value) && Number(value) >= 12 && Number(value <= 60) && Number.isInteger(Number(value))
 
     return{
       personalCode: {
